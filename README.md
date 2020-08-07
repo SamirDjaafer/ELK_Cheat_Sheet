@@ -100,14 +100,14 @@ server {
 1. `wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`
 2. `sudo apt-get install apt-transport-https`
 3. `echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-6.x.list`
-4. `sudo apt-get update && sudo apt-get install filebeat`
+4. `sudo apt-get update && sudo apt-get install heartbeat`
 5. `sudo update-rc.d filebeat defaults 95 10`
 
 ### Configure Filebeats to find ELK machine
 
 1. `sudo nano /etc/filebeat/filebeat.yml`
 2. Uncomment `host` in the Kibana section. Give the IP of the server running ELK.
-3. Go to the outputs section, change the Elastic ssearch hosts: url to the IP of the server running ELK.
+3. Go to the outputs section, change the Elastic search hosts: url to the IP of the server running ELK.
 
 - We can test if this was successful with `sudo filebeat test output`
 
